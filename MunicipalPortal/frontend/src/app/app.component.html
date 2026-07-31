@@ -1,0 +1,7 @@
+<app-navbar *ngIf="!isDashboardRoute()"></app-navbar>
+
+<main class="app-main-layout">
+  <router-outlet (activate)="onRouteActivate($event)"></router-outlet>
+</main>
+
+<app-footer *ngIf="!isDashboardRoute()"></app-footer>

@@ -1,0 +1,154 @@
+/* ==========================================================================
+   1. HERO CORE SECTION CONTAINER
+   ========================================================================== */
+/* Ensure host element fills width */
+:host {
+  display: block;
+  width: 100%;
+  background-color: #eaf2ff;
+}
+
+.hero-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #eaf2ff;
+  
+  width: 100%;
+  min-height: calc(100vh - 80px); 
+  
+  padding: 0 80px;
+  box-sizing: border-box;
+  gap: 40px;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+/* ==========================================================================
+   2. LEFT COLUMN CONTENT: TEXT LAYER FLOW
+   ========================================================================== */
+.hero-content {
+  flex: 1.1;                     /* Gives the text slightly more visual weight room */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  text-align: left;
+  z-index: 2;                    
+}
+
+.hero-title {
+  font-size: 44px;
+  font-weight: 800;
+  color: #0b1a30;
+  line-height: 1.2;
+  margin: 0 0 16px 0;
+}
+
+.highlight-blue {
+  color: #0088ff;                 
+}
+
+.hero-desc {
+  font-size: 16px;
+  color: #475569;                 
+  line-height: 1.6;
+  margin: 0 0 28px 0;              
+}
+
+.hero-actions {
+  margin: 0;
+}
+
+/* ==========================================================================
+   3. HERO INTERACTION CALL-TO-ACTIONS
+   ========================================================================== */
+.btn-hero {
+  padding: 12px 32px;
+  font-size: 15px;
+  font-weight: 600;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #0088ff, #0066ff);
+  color: #ffffff;
+  box-shadow: 0 4px 14px rgba(0, 102, 255, 0.25);
+}
+
+.btn-primary:hover {
+  filter: brightness(1.08);
+  transform: translateY(-1px);
+}
+
+/* Disabled locked visual status state signature */
+.btn-hero:disabled {
+  cursor: not-allowed;            
+  opacity: 0.55;                  
+  box-shadow: none !important;
+  transform: none !important;
+}
+
+/* ==========================================================================
+   4. RIGHT COLUMN: MUNICIPAL IMAGE CONTAINER MODIFICATIONS
+   ========================================================================== */
+.hero-graphic-panel {
+  flex: 0.9;                     /* Keeps the right panel proportional */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  max-width: 480px;              /* Strictly caps width */
+  width: 100%;
+}
+
+/* Target both image AND video tags inside the graphic panel */
+.hero-graphic-panel video,
+.hero-vector-img {
+  width: 100%;
+  max-width: 480px;              /* Fixed card width matching original design */
+  height: 320px;                 /* Restricted height prevents layout swelling */
+  
+  object-fit: cover;             /* Clean cropping inside card bounds */
+  border-radius: 20px;           /* Smooth rounded corners */
+  box-shadow: 0 15px 35px rgba(11, 26, 48, 0.12);
+  transition: transform 0.3s ease;
+  display: block;
+}
+
+.hero-graphic-panel video:hover,
+.hero-vector-img:hover {
+  transform: scale(1.015);
+}
+
+/* ==========================================================================
+   5. VIEWPORT RESPONSIVENESS AND SINGLE PAGE JUMPS
+   ========================================================================== */
+@media (max-width: 990px) {
+  .hero-container {
+    padding: 100px 30px 40px 30px;
+    flex-direction: column-reverse; /* Places text on top, image comfortably on bottom */
+    text-align: center;
+  }
+  .hero-content {
+    align-items: center;
+  }
+  .hero-actions {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+  }
+  .hero-graphic-panel {
+    margin-top: 20px;
+    width: 100%;
+  }
+  .hero-vector-img {
+    height: 280px;               /* Scales image down gracefully on tablet/mobile screens */
+  }
+}
+
+#services {
+  scroll-margin-top: 90px;       /* Aligns smooth anchors accurately beneath fixed header */
+}
+
